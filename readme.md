@@ -16,11 +16,11 @@ Tablet View : In Process
 ---
 
 ---
- [Views](https://brajesh825.github.io/School-Management-System-Views)
+ [Views](https://github.com/Brajesh825/School-Management-System-Views)
 ---
 
 ---
- [Node Server](https://brajesh825.github.io/School-Management-System-Server/)
+ [Node Server](https://github.com/Brajesh825/School-Management-System-Server/)
 ---
 
 ## Demo
