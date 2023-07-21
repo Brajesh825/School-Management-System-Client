@@ -12,7 +12,7 @@ Tablet View : In Process
 ---
 
 ---
- [Live Demo (Html Css Js Only)](https://brajesh825.github.io/School-Management-System-Views/)
+ [Live Demo Static (Html Css Js Only)](https://brajesh825.github.io/School-Management-System-Views/)
 ---
 
 ---
