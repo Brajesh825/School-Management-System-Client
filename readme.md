@@ -1,4 +1,4 @@
-# SCHOOL MANAGEMENT SYSTEM VIEWS
+# SCHOOL MANAGEMENT SYSTEM REACT APPLICATION
 
 ```
 PC View : Completed
@@ -16,7 +16,7 @@ Tablet View : In Process
 ---
 
 ---
- [React Application](https://brajesh825.github.io/School-Management-System-Client)
+ [Views](https://brajesh825.github.io/School-Management-System-Views)
 ---
 
 ---
