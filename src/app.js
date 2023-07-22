@@ -1,6 +1,6 @@
 import React from "react";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 import Error from "./error";
 
@@ -30,6 +30,11 @@ import AdminSettings from "./components/admin/setting/setting";
 import StudentSettings from "./components/student/setting/setting";
 
 const router = createBrowserRouter([
+  {
+    path: "/" ,
+    element: <Navigate to={"/student/login"} ></Navigate>
+
+  },
   {
     path: "/student",
     errorElement: <Error />,

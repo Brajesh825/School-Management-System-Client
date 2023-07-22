@@ -1,37 +1,103 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const MyTransactions = () => {
+const TransactionRow = ({ transaction, viewMode }) => {
+
+  if (viewMode == 'lite') {
+    return (
+      <tr >
+        <td> {transaction.class} </td>
+        <td> {transaction.month} </td>
+        <td> {transaction.year} </td>
+        <td> {transaction.status} </td>
+      </tr>
+    );
+  }
+  else {
+    const totalFee = transaction.libraryFee + transaction.hostelFee + transaction.transportFee + transaction.tutionFee
+    return (
+      <tr >
+        <td> {transaction.class} </td>
+        <td> {transaction.month} </td>
+        <td> {transaction.year} </td>
+        <td> {transaction.status} </td>
+        <td> {transaction.libraryFee} </td>
+        <td> {transaction.hostelFee} </td>
+        <td> {transaction.transportFee} </td>
+        <td> {transaction.tutionFee} </td>
+        <td> {totalFee} </td>
+      </tr>
+    );
+  }
+
+};
+
+const TransactionHead = ({ viewMode }) => {
+
+  if (viewMode == "lite") {
+    return <thead>
+      <tr>
+        <th>Class</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+  }else  if (viewMode == "detailed") {
+    return <thead>
+      <tr>
+        <th>Class</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Status</th>
+        <th>Library Fee</th>
+        <th>Hostel Fee</th>
+        <th>Transport Fee</th>
+        <th>Tution Fee</th>
+        <th>Total Fee</th>
+      </tr>
+    </thead>
+  }
+}
+
+const TransactionList = ({ transactionList, viewMode }) => {
+  let no = 0;
   return (
-    <div class="transaction-list">
-      <div class="transaction-table">
+    <>
+      {transactionList.map((transaction, index) => (
+        <TransactionRow transaction={transaction} viewMode={viewMode} />
+      ))}
+    </>
+  );
+};
+
+const AllTransactions = () => {
+  const [transactionList, setTransactionList] = useState([]);
+  const [viewMode, setViewMode] = useState(['lite'])
+
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/v1/student/bill/list", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        let data = res.data;
+        setTransactionList(data.bills);
+      });
+  }, []);
+
+  return (
+    <div className="transaction-list">
+      <div >
+        <span onClick={() => { setViewMode('lite') }} style={{ backgroundColor: 'Blue', color: 'White', padding: '0.75rem', marginRight: "1rem", border: "1px solid pink", borderRadius: "0.5rem" }} >Lite</span>
+        <span onClick={() => { setViewMode('detailed') }} style={{ backgroundColor: 'Green', color: 'White', padding: '0.75rem', marginRight: "1rem", border: "1px solid pink", borderRadius: "0.5rem" }} >Detailed</span>
+      </div>
+      <div style={{ 'margin-top': '2rem' }} className="transaction-table">
         <table>
-          <thead>
-            <tr>
-              <th>Class</th>
-              <th>Month</th>
-              <th>Year</th>
-              <th>Status</th>
-              <th>Amount</th>
-              <th>Priority</th>
-            </tr>
-          </thead>
+          <TransactionHead viewMode={viewMode} />
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>January</td>
-              <td>2023</td>
-              <td>Paid</td>
-              <td>500</td>
-              <td>Urgent</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>January</td>
-              <td>2023</td>
-              <td>Paid</td>
-              <td>500</td>
-              <td>Urgent</td>
-            </tr>
+            <TransactionList viewMode={viewMode} transactionList={transactionList} />
           </tbody>
         </table>
       </div>
@@ -39,4 +105,4 @@ const MyTransactions = () => {
   );
 };
 
-export default MyTransactions;
+export default AllTransactions;
