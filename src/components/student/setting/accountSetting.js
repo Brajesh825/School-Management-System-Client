@@ -24,7 +24,6 @@ const AccountSetting = () => {
     return state?.state?.user?.studentID
   })
 
-
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.post(
@@ -32,10 +31,21 @@ const AccountSetting = () => {
         {},
         { withCredentials: true }
       );
-      let { name, profilePic, email, mobile } = data;
+      let { name, profilePic, email, mobile, motherName, fatherName, address } = data;
       setName(name);
       setEmail(email);
       setMobile(mobile);
+      setMotherName(motherName)
+      setFatherName(fatherName)
+      if (address) {
+        setDistrict(address.district)
+        setVillage(address.villageName)
+        setPinCode(address.pinCode)
+        setPoliceStation(address.policeStation)
+        setState(address.state)
+        setPost(address.postName)
+      }
+
       if (profilePic) {
         setProfile(profilePic);
       }
@@ -87,14 +97,14 @@ const AccountSetting = () => {
     formData.append("mobile", mobile);
 
     // Address
-    formData.append("fatherName",fatherName)
-    formData.append("motherName",motherName)
-    formData.append("villageName",villageName)
-    formData.append("postName",postName)
-    formData.append("policeStation",policeStation)
-    formData.append("pinCode",pinCode)
-    formData.append("district",district)
-    formData.append("state",state)
+    formData.append("fatherName", fatherName)
+    formData.append("motherName", motherName)
+    formData.append("villageName", villageName)
+    formData.append("postName", postName)
+    formData.append("policeStation", policeStation)
+    formData.append("pinCode", pinCode)
+    formData.append("district", district)
+    formData.append("state", state)
 
     axios
       .patch("http://localhost:4000/api/v1/student", formData, {
@@ -110,7 +120,7 @@ const AccountSetting = () => {
   }
   return (
     <div className="account-setting-form">
-      <form onSubmit={handleFormSubmit} style={{ overflow: "auto" , height : "80vh" }}>
+      <form onSubmit={handleFormSubmit} style={{ overflow: "auto", height: "80vh" }}>
         <div className="profile-picture-selector">
           <span>Your Profile Picture</span>
           <label for="upload-button" class="custom-button">
