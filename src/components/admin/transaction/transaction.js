@@ -34,7 +34,7 @@ const Transaction = () => {
     });
     let order = await response.json();
 
-    if (order.success == "true") {
+    if (order.success === "true") {
       setTransaction((previousState) => {
         return [...previousState, order.order];
       });

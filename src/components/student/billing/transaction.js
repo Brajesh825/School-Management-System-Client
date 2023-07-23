@@ -11,21 +11,22 @@ const StudentTransaction = () => {
     switch (slider) {
       case "transaction": {
         return <AllTransactions />;
-        break;
       }
       case "newTransaction": {
         return <NewTransaction/>
-        break;
       }
       case "myTransaction": {
         return <MyTransactions/>
-        break;
+      }
+
+      default : {
+        return <AllTransactions/>
       }
     }
   };
 
   return (
-    <div class="fee-structure-main">
+    <div className="fee-structure-main">
       <TransactionSlider activeSlider={slider} setActiveSlider={setSlider} />
       {view()}
     </div>

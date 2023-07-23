@@ -19,7 +19,6 @@ const TransactionRow = ({ transaction }) => {
 };
 
 const TransactionList = ({ transactionList }) => {
-  let no = 0;
   return (
     <>
       {transactionList.map((transaction, index) => (

@@ -27,7 +27,7 @@ const Student = () => {
     let student = await response.json();
     console.log(student);
 
-    if (student.success == "true") {
+    if (student.success === "true") {
       setStudent((previousState) => {
         return [...previousState, student.student];
       });

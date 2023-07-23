@@ -52,7 +52,7 @@ const StudentTable = ({ allStudents }) => {
   const handleActiveStudent = (e) => {
     let studentID = e.target.parentNode.getAttribute("id");
     let students = allStudents.filter(
-      (student) => student.studentID == studentID
+      (student) => student.studentID === studentID
     );
     let currStudent = students[0];
     setActiveStudent(currStudent);
@@ -62,7 +62,7 @@ const StudentTable = ({ allStudents }) => {
     <>
       <div className="filter-wrapper">
         <div className="search-wrapper">
-          <object data="/icons/search-icon.svg" type=""></object>
+          <object data="/icons/search-icon.svg" type="">Search Icon</object>
           <input
             type="search"
             placeholder="Search For A Student By Name,Email,Id or Class"

@@ -2,7 +2,6 @@ import React from "react";
 
 import AsyncSelect from "react-select/async";
 
-import { useEffect } from "react";
 import { useState } from "react";
 
 const ClassDropDown = () => {

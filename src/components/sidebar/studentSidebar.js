@@ -18,30 +18,30 @@ const StudentSidebar = () => {
         <div className="sidebar-bottom">
           <div
             className={`sidebar-btn-container ${
-              activeOption == "dashboard" ? "active-btn" : ""
+              activeOption === "dashboard" ? "active-btn" : ""
             } `}
           >
-            <object data="/icons/dashboard.svg"></object>
+            <object data="/icons/dashboard.svg">Dashboard</object>
             <Link to={"/student/dashboard"} className="sidebar-option">
               Dashboard
             </Link>
           </div>
           <div
             className={`sidebar-btn-container ${
-              activeOption == "billing" ? "active-btn" : ""
+              activeOption === "billing" ? "active-btn" : ""
             } `}
           >
-            <object data="/icons/billing.svg"></object>
+            <object data="/icons/billing.svg">Billing</object>
             <Link to={"/student/billing"} className="sidebar-option">
               Billing
             </Link>
           </div>
           <div
             className={`sidebar-btn-container ${
-              activeOption == "setting" ? "active-btn" : ""
+              activeOption === "setting" ? "active-btn" : ""
             } `}
           >
-            <object data="/icons/setting.svg"></object>
+            <object data="/icons/setting.svg">Setting</object>
             <Link to={"/student/setting"} className="sidebar-option">
               Settings
             </Link>

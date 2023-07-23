@@ -7,19 +7,19 @@ const AdminDashboard = () => {
         <h2>Welcome to your dashboard , P.N Academy</h2>
         <div className="actions">
           <div className="action-container">
-            <object data="/icons/admin.svg"></object>
+            <object data="/icons/admin.svg">Admin</object>
             <Link to={"/admin/add"} className="sidebar-option">
               Add Admins
             </Link>
           </div>
           <div className="action-container">
-            <object data="/icons/class-big.svg"></object>
+            <object data="/icons/class-big.svg">BigClass</object>
             <Link to={"/admin/class"} className="sidebar-option">
               Add Classes
             </Link>
           </div>
           <div className="action-container">
-            <object data="/icons/student-big.svg"></object>
+            <object data="/icons/student-big.svg">BigStudent</object>
             <Link to={"/admin/student"} className="sidebar-option">
               Add Students
             </Link>

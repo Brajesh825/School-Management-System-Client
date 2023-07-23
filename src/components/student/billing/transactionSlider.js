@@ -8,7 +8,7 @@ const TransactionSlider = ({ activeSlider, setActiveSlider }) => {
         onClick={() => {
           setActiveSlider("transaction");
         }}
-        class={activeSlider == "transaction" ? "active-slider" : ""}
+        className={activeSlider === "transaction" ? "active-slider" : ""}
       >
         Transactions
       </Link>
@@ -17,7 +17,7 @@ const TransactionSlider = ({ activeSlider, setActiveSlider }) => {
         onClick={() => {
           setActiveSlider("newTransaction");
         }}
-        class={activeSlider == "newTransaction" ? "active-slider" : ""}
+        className={activeSlider === "newTransaction" ? "active-slider" : ""}
       >
         New Transactions
       </Link>
@@ -26,7 +26,7 @@ const TransactionSlider = ({ activeSlider, setActiveSlider }) => {
         onClick={() => {
           setActiveSlider("myTransaction");
         }}
-        class={activeSlider == "myTransaction" ? "active-slider" : ""}
+        className={activeSlider === "myTransaction" ? "active-slider" : ""}
       >
         My Transactions
       </Link>

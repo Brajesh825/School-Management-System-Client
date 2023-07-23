@@ -1,20 +1,43 @@
 import React from "react";
 
 const StudentProfile = ({ student }) => {
-  function calculate_age(dob) {
-    var diff_ms = Date.now() - dob.getTime();
-    var age_dt = new Date(diff_ms);
-    return Math.abs(age_dt.getUTCFullYear() - 1970);
+
+  function calculateAgeFromDate(inputDate) {
+    // Parse the input date string into a Date object
+    const birthDate = new Date(inputDate);
+  
+    // Get the current date
+    const currentDate = new Date();
+  
+    // Calculate the age
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+  
+    // Check if the birthday has occurred this year
+    const birthMonth = birthDate.getMonth();
+    const currentMonth = currentDate.getMonth();
+    const birthDay = birthDate.getDate();
+    const currentDay = currentDate.getDate();
+  
+    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDay < birthDay)) {
+      age--;
+    }
+  
+    return age;
   }
+  
+
   let gender = student.gender;
-  var dateParts = student.dob.split("/");
-  let dob = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-  let age = calculate_age(dob);
-  let about = student.about || "no content";
+  let dob = student.dob
+  let age = calculateAgeFromDate(dob)
   let name = student.name;
   let avatar = student.image || "";
   let sclass = student.class;
   let sID = student.studentID;
+  let motherName = student.motherName
+  let fatherName = student.fatherName
+  let village = student.address?.villageName || ""
+
+  console.log(student);
 
   return (
     <div class="student-profile">
@@ -30,9 +53,19 @@ const StudentProfile = ({ student }) => {
           <p>{sclass}</p>
         </div>
       </div>
-      <div class="student-about">
-        <h3>About</h3>
-        <p>{about}</p>
+      <div class="student-misc">
+        <div class="student-age">
+          <h3>Mother Name</h3>
+          <p>{motherName}</p>
+        </div>
+        <div class="student-gender">
+          <h3>Father Name</h3>
+          <p>{fatherName}</p>
+        </div>
+        <div class="student-gender">
+          <h3>Village</h3>
+          <p>{village}</p>
+        </div>
       </div>
       <div class="student-misc">
         <div class="student-age">

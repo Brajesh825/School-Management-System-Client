@@ -483,10 +483,11 @@ th {
   margin: 0 0 0.5rem 0;
 }
 .student-misc {
-  max-width: 300px;
+  max-width: 100%;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .student-add {
@@ -507,10 +508,11 @@ th {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .add-students-options div {
-  width: 90px;
+  /* width: 90px; */
   padding: 0.25rem;
   margin: 0 0.5rem 0 0;
   border: 1px solid pink;

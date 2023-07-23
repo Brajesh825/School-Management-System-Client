@@ -5,7 +5,7 @@ const FeeStruuctureSlider = ({ activeSlider, changeSlider }) => {
     <div class="fee-structure-slider">
       <Link
         name="list"
-        className={activeSlider == "list" ? "active-slider" : ""}
+        className={activeSlider === "list" ? "active-slider" : ""}
         onClick={changeSlider}
       >
         Fee Structure
@@ -13,7 +13,7 @@ const FeeStruuctureSlider = ({ activeSlider, changeSlider }) => {
       <Link
         name="form"
         onClick={changeSlider}
-        className={activeSlider == "form" ? "active-slider" : ""}
+        className={activeSlider === "form" ? "active-slider" : ""}
       >
         New Fee Structure
       </Link>

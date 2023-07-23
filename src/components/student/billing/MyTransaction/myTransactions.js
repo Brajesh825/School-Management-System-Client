@@ -3,7 +3,7 @@ import axios from "axios";
 
 const TransactionRow = ({ transaction, viewMode }) => {
 
-  if (viewMode == 'lite') {
+  if (viewMode === 'lite') {
     return (
       <tr >
         <td> {transaction.class} </td>
@@ -34,7 +34,7 @@ const TransactionRow = ({ transaction, viewMode }) => {
 
 const TransactionHead = ({ viewMode }) => {
 
-  if (viewMode == "lite") {
+  if (viewMode === "lite") {
     return <thead>
       <tr>
         <th>Class</th>
@@ -43,7 +43,7 @@ const TransactionHead = ({ viewMode }) => {
         <th>Status</th>
       </tr>
     </thead>
-  }else  if (viewMode == "detailed") {
+  }else  if (viewMode === "detailed") {
     return <thead>
       <tr>
         <th>Class</th>
@@ -61,7 +61,6 @@ const TransactionHead = ({ viewMode }) => {
 }
 
 const TransactionList = ({ transactionList, viewMode }) => {
-  let no = 0;
   return (
     <>
       {transactionList.map((transaction, index) => (

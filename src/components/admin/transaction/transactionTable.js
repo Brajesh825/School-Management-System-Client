@@ -9,9 +9,9 @@ const TransactionTable = ({ allTransactions }) => {
   const filteredTransactions = allTransactions.filter((transaction) => {
     return (
       transaction?.month.toLowerCase().includes(searchField.toLowerCase()) ||
-      transaction.year == searchField ||
+      transaction.year === searchField ||
       transaction.className.toLowerCase().includes(searchField.toLowerCase()) ||
-      transaction.totalAmount == searchField ||
+      transaction.totalAmount === searchField ||
       transaction.modeOfTransaction
         .toLowerCase()
         .includes(searchField.toLowerCase()) ||
@@ -43,7 +43,7 @@ const TransactionTable = ({ allTransactions }) => {
     <>
       <div className="filter-wrapper">
         <div className="search-wrapper">
-          <object data="/icons/search-icon.svg" type=""></object>
+          <object data="/icons/search-icon.svg" type="">Search Icon</object>
           <input
             type="search"
             placeholder="Search For A transaction By Name,Email,Id or Class"

@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ClassDropDown from "./classDropDown";
 import MonthDropDown from "./monthDropDown";
 import YearDropDown from "./yearDropDown";
 
 const AddFeeStructure = ({ addFeeStructure, changeSlider }) => {
-  const navigate = useNavigate();
+  useNavigate();
 
   const [errors, setErrorMessage] = useState([]);
 
@@ -18,19 +18,7 @@ const AddFeeStructure = ({ addFeeStructure, changeSlider }) => {
   const [hostelFee, setHostelFee] = useState("");
   const [transportFee, setTransportFee] = useState("");
 
-  // Handling Inputs
-  const setMyClass = (e) => {
-    let data = e.target.value;
-    setClass(data);
-  };
-  const setMyMonth = (e) => {
-    let data = e.target.value;
-    setMonth(data);
-  };
-  const setMyYear = (e) => {
-    let data = e.target.value;
-    setYear(data);
-  };
+
   const setMyLibraryFee = (e) => {
     let data = e.target.value;
     if (data < 0) {
@@ -72,7 +60,7 @@ const AddFeeStructure = ({ addFeeStructure, changeSlider }) => {
   const validateRequired = (data) => {
     setErrorMessage("");
     for (const key in data) {
-      if (data[key] == "") {
+      if (data[key] === "") {
         setErrorMessage(`${key} can not be Empty`);
         return false;
       }
@@ -95,7 +83,7 @@ const AddFeeStructure = ({ addFeeStructure, changeSlider }) => {
     let isValidatedRequired = validateRequired(data);
     if (isValidatedRequired) {
       let response = await addFeeStructure(data);
-      if (response.success == "true") {
+      if (response.success === "true") {
         changeSlider("list");
       } else {
         setErrorMessage(response.message);
@@ -109,10 +97,10 @@ const AddFeeStructure = ({ addFeeStructure, changeSlider }) => {
         <h3>Add Fee Structure</h3>
         <div className="add-students-options">
           <div className="manual-add-btn">
-            <a href="">Manually</a>
+            <a href="#Manually">Manually</a>
           </div>
           <div className="csv-add-btn">
-            <a href="">Import CSV</a>
+            <a href="#ImportCSV">Import CSV</a>
           </div>
         </div>
         <div className="fee-add-form-wrapper">
@@ -152,7 +140,7 @@ const AddFeeStructure = ({ addFeeStructure, changeSlider }) => {
               ></input>
             </div>
             <div className="form-element">
-              <a onClick={submitForm} className="btn add-one-btn">
+              <a href="#form" onClick={submitForm} className="btn add-one-btn">
                 Add Fee Structure
               </a>
             </div>

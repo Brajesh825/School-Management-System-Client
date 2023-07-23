@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
@@ -16,12 +16,10 @@ import { useDispatch } from "react-redux";
 
 const StudentLayout = () => {
   const dispatch = useDispatch();
-  let params = useParams();
+  useParams();
   const navigate = useNavigate();
 
   const [cookies, removeCookie] = useCookies([]);
-  const [username, setUsername] = useState("");
-  const [studentID, setStudentID] = useState("");
 
   // Handling Login Logics
 
@@ -45,7 +43,7 @@ const StudentLayout = () => {
         : (removeCookie("token"), navigate("/student/login"));
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+  }, [cookies, navigate, removeCookie,dispatch]);
 
   const Logout = () => {
     removeCookie("token");

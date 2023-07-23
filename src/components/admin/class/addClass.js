@@ -18,7 +18,7 @@ const AddClass = (data) => {
     object.noOfStudents = 0;
     let response = await addClass(object);
 
-    if (response.success == "true") {
+    if (response.success === "true") {
       navigate("/admin/class");
     }else {
       setError(response.message)
@@ -30,10 +30,10 @@ const AddClass = (data) => {
       <h3>Add Classes</h3>
       <div class="add-students-options">
         <div class="manual-add-btn">
-          <a href="">Manually</a>
+          <a href="#Manual" >Manually</a>
         </div>
         <div class="csv-add-btn">
-          <a href="">Import CSV</a>
+          <a href="#ImportCSV">Import CSV</a>
         </div>
       </div>
       <div class="student-add-form-wrapper">

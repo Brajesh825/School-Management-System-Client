@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 const Navbar = ({ logout }) => {
   let user = useSelector((state) => {
@@ -8,9 +7,9 @@ const Navbar = ({ logout }) => {
   });
 
   return (
-    <div class="navbar dashboard-nav">
-      <div class="dashboard-welcome"></div>
-      <div class="dashboard-nav-btn-wrapper">
+    <div className="navbar dashboard-nav">
+      <div className="dashboard-welcome"></div>
+      <div className="dashboard-nav-btn-wrapper">
         <span className="user-welcome">
           <span className="name">{user?.name ? user.name : ""}</span>
           <span className="_id">{user?.role ? user.role : ""}</span>

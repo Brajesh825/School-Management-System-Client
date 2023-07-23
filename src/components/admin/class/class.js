@@ -23,7 +23,7 @@ const Class = () => {
       },
     });
     let myClass = await response.json();
-    if (myClass.success == "true") {
+    if (myClass.success === "true") {
       setClass((previousState) => {
         return [...previousState, myClass.class];
       });

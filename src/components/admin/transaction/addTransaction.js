@@ -7,7 +7,7 @@ import MonthDropDown from "./monthDropDown";
 const AddTransaction = () => {
   const [error, setError] = useState("");
   const { addTransaction } = useOutletContext();
-  const navigate = useNavigate();
+  useNavigate();
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -17,8 +17,7 @@ const AddTransaction = () => {
       object[key] = value;
     });
     let order = await addTransaction(object);
-    console.log(order);
-    if (order.success == "true") {
+    if (order.success === "true") {
       window.location.reload()
     } else {
       setError(order.message);

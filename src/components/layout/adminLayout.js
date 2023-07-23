@@ -2,11 +2,11 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import AdminSidebar from "../sidebar/adminSidebar";
@@ -16,7 +16,7 @@ import { useDispatch } from "react-redux";
 
 const AdminLayout = () => {
   const dispatch = useDispatch();
-  let params = useParams();
+  useParams();
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
 
@@ -32,21 +32,18 @@ const AdminLayout = () => {
         {},
         { withCredentials: true }
       );
-      console.log(data);
       const { status, name } = data;
-
-      console.log(data);
-
       dispatch({ type: "admin/add", payload: data });
-      return status
+      status
         ? toast(`Welcome back ! ${name}`, {
-            position: "top-right",
-          })
-        : removeCookie("token");
-      navigate("/admin/login");
+          position: "top-right",
+        })
+        : removeCookie("token") && navigate("/admin/login");
+
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+
+  }, [cookies, navigate, removeCookie,dispatch]);
 
   const Logout = () => {
     removeCookie("token");

@@ -28,13 +28,14 @@ const TransactionView = ({ className, year, month }) => {
             });
             break;
           }
+          default : {}
         }
       })
       .catch((e) => {
         console.log(e);
         console.log("error");
       });
-  }, []);
+  }, [className,year,month]);
 
   if (transactionDetails) {
     console.log(transactionDetails);

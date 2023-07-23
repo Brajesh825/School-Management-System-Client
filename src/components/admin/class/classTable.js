@@ -30,7 +30,7 @@ const ClassTable = ({ allClasses }) => {
     <>
       <div className="filter-wrapper">
         <div className="search-wrapper">
-          <object data="/icons/search-icon.svg" type=""></object>
+          <object data="/icons/search-icon.svg" type="">Search Icon</object>
           <input
             type="search"
             placeholder="Search For A Student By Name,Email,Id or Class"

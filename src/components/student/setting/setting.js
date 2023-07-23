@@ -15,6 +15,9 @@ const StudentSettings = () => {
         return <SecuritySetting />;
       case "Role":
         return <RoleSetting />;
+      default:
+        return <AccountSetting />;
+
     }
   }
 
@@ -23,21 +26,21 @@ const StudentSettings = () => {
       <div className="fee-structure-main">
         <div className="fee-structure-slider">
           <Link
-            className={slider == "Account" ? "active-slider" : ""}
+            className={slider === "Account" ? "active-slider" : ""}
             onClick={() => setSlider("Account")}
           >
             {" "}
             Account Setting
           </Link>
           <Link
-            className={slider == "Security" ? "active-slider" : ""}
+            className={slider === "Security" ? "active-slider" : ""}
             onClick={() => setSlider("Security")}
           >
             {" "}
             Login & Security{" "}
           </Link>
           <Link
-            className={slider == "Role" ? "active-slider" : ""}
+            className={slider === "Role" ? "active-slider" : ""}
             onClick={() => setSlider("Role")}
           >
             {" "}

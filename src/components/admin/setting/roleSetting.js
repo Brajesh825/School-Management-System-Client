@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const RoleSetting = () => {
-  const [role, setRole] = useState("Admin");
+  const [role] = useState("Admin");
   return (
     <div class="account-setting-form">
       <form>

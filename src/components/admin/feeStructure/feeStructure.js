@@ -40,7 +40,7 @@ const FeeStructure = () => {
     });
     let feeStructure = await response.json();
 
-    if (feeStructure.success == "true") {
+    if (feeStructure.success === "true") {
       setFeeStructure((previousState) => {
         feeStructure.feeStructure.class = myClass;
         return [...previousState, feeStructure.feeStructure];
@@ -67,7 +67,6 @@ const FeeStructure = () => {
             <FeeStructureTable allfeeStructures={allFeeStructures} />
           </>
         );
-        break;
       }
       case "form": {
         return (
@@ -82,7 +81,17 @@ const FeeStructure = () => {
             />
           </>
         );
-        break;
+      }
+
+      default: {
+        return (
+          <>
+            <FeeStruuctureSlider
+              activeSlider={activeSlider}
+              changeSlider={changeSlider}
+            />
+            <FeeStructureTable allfeeStructures={allFeeStructures} />
+          </>)
       }
     }
   };

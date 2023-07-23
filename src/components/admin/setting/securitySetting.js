@@ -40,7 +40,7 @@ const SecuritySetting = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    if (newPassword != confirmPassword) {
+    if (newPassword !== confirmPassword) {
       setErrorMessage("New Password and Confirm New Password are not same");
     } else {
       const data = { password, newPassword, confirmPassword };
@@ -70,6 +70,10 @@ const SecuritySetting = () => {
             case 400: {
               setErrorMessage(data.message);
               break;
+            }
+
+            default: {
+
             }
           }
         })

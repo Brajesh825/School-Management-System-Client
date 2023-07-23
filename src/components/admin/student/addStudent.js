@@ -6,6 +6,11 @@ import ClassDropDown from "./classDropDown";
 import GenderDropDown from "./genderDropDown";
 
 const AddStudent = (data) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  function handleFileChange(event) {
+    setSelectedFile(event.target.files[0]);
+  }
+
   const [error, setError] = useState("");
   const { addStudent } = useOutletContext();
   const navigate = useNavigate();
@@ -18,22 +23,35 @@ const AddStudent = (data) => {
       object[key] = value;
     });
     let response = await addStudent(object);
-    if (response.success == "true") {
+    if (response.success === "true") {
       navigate("/admin/student");
     } else {
       setError(response.message);
     }
   };
 
+  const importStudents = () => {
+    console.log(selectedFile);
+  }
+
   return (
     <div class="student-add">
       <h3>Add Students</h3>
       <div class="add-students-options">
         <div class="manual-add-btn">
-          <a href="">Manually</a>
+          <a href="#Manually">Manually</a>
         </div>
         <div class="csv-add-btn">
-          <a href="">Import CSV</a>
+          <div style={{ display: "flex", flexDirection: "row" }} >
+            <input
+
+              id="upload-student-button"
+              name="students"
+              type="file"
+              onChange={handleFileChange}
+            ></input>
+            <button onClick={importStudents} type="submit">Upload CSV</button>
+          </div>
         </div>
       </div>
       <div class="student-add-form-wrapper">

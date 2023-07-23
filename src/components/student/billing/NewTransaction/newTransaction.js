@@ -79,7 +79,7 @@ const NewTransaction = () => {
       />
       {viewTransaction()}
       <div>
-        <button class="btn pay-now-btn">Pay Now</button>
+        <button className="btn pay-now-btn">Pay Now</button>
       </div>
     </div>
   );
